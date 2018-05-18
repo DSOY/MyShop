@@ -1,0 +1,170 @@
+﻿@using ShopManage.Shop.Product.Dtos
+@using ShopManage.Web.Startup
+@model Abp.Application.Services.Dto.PagedResultDto<ProductListDto>
+@{
+    ViewBag.CurrentPageName = PageNames.Product; // The menu item will be active for this page.
+}
+@section scripts
+    {
+    <environment names="Development">
+        <script src="~/view-resources/Views/Product/Index.js" asp-append-version="true"></script>
+    </environment>
+    @*<environment names="Staging,Production">
+            <script src="~/view-resources/Views/Product/Index.min.js" asp-append-version="true"></script>
+        </environment>*@
+}
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    @L("Product")
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a id="RefreshButton" href="javascript:void(0);" class="waves-effect waves-block"><i class="material-icons">refresh</i>Refresh</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="body table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>图片</th>
+                            <th>商品名称</th>
+                            <th>简称</th>
+                            <th>价格</th>
+                            <th>原价</th>
+                            <th>规格</th>
+                            <th>品类</th>
+                            <th>已售数量</th>
+                            <th>状态</th>
+                            <th>是否精品</th>
+                            <th>是否新品</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in Model.Items)
+                        {
+                            <tr>
+                                <td>@product.Picture</td>
+                                <td>@product.Name</td>
+                                <td>@product.ShortName</td>
+                                <td>@product.Price</td>
+                                <td>@product.OldPrice</td>
+                                <td>@product.Size</td>
+                                <td>@product.Category</td>
+                                <td>@product.SoldNum</td>
+                                <td>@product.Status</td>
+                                <td>@product.IsBest</td>
+                                <td>@product.IsNew</td>
+                                <td><i class="material-icons" style="color:@(product.IsDeleted ? "green":"red");">@(product.IsDeleted ? "check_box" : "indeterminate_check_box")</i></td>
+                                <td class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">menu</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="#" class="waves-effect waves-block edit-product" data-product-id="@product.Id" data-toggle="modal" data-target="#ProductEditModal"><i class="material-icons">edit</i>@L("Edit")</a></li>
+                                        <li><a href="#" class="waves-effect waves-block delete-product" data-product-id="@product.Id" data-product-name="@product.ShortName"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#ProductCreateModal">
+                    <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ProductCreateModal" tabindex="-1" role="dialog" aria-labelledby="ProductCreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form name="productCreateForm" role="form" novalidate class="form-validation">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <span>创建新商品</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    @*<div class="form-group form-float">
+                            <div class="form-line">
+                                <img class="form-control" src="Picture" name="Picture" required maxlength="100" minlength="2">
+                                <label class="form-label">@L("Picture")</label>
+                            </div>
+                        </div>*@
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" name="Name" required maxlength="100" minlength="2">
+                            <label class="form-label">@L("Name")</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" name="ShortName" required maxlength="100" minlength="2">
+                            <label class="form-label">@L("ShortName")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="number" name="Price" required maxlength="100" minlength="2">
+                            <label class="form-label">@L("Price")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="number" name="OldPrice" required maxlength="100" minlength="2">
+                            <label class="form-label">@L("OldPrice")</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <input class="form-control" type="text" name="Size" required maxlength="100">
+                            <label class="form-label">@L("Size")</label>
+                        </div>
+                    </div>
+                    @*<div class="form-group form-float">
+                            <div class="form-line">
+                                <input class="form-control" type="text" name="CategoryId" required maxlength="100" minlength="2">
+                                <label class="form-label">@L("Category")</label>
+                            </div>
+                        </div>*@
+                    <div class="checkbox">
+                        <input type="checkbox" name="IsBest" value="true" id="IsBest" class="filled-in" checked />
+                        <label>@L("IsBest")</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="IsBest" value="true" id="IsBest" class="filled-in" checked />
+                        <label>@L("IsBest")</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" name="IsDeleted" value="true" id="IsDeleted" class="filled-in" checked />
+                        <label for="CreateProductIsActive">@L("IsDeleted")</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
+                    <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="ProductEditModal" tabindex="-1" role="dialog" aria-labelledby="ProductEditModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+

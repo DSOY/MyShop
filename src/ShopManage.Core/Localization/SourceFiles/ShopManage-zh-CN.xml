@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="zh-CN">
+  <texts>
+    <text name="HomePage" value="主页" />
+    <text name="About" value="关于" />
+    <text name="WellcomeMessage" value="欢迎来到ShopManage!" />
+    <text name="FormIsNotValidMessage" value="窗体无效。请检查并修复错误." />
+    <text name="TenantNameCanNotBeEmpty" value="租户名不能为空" />
+    <text name="InvalidUserNameOrPassword" value="无效的用户名或密码" />
+    <text name="ThereIsNoTenantDefinedWithName{0}" value="未定义租户名 {0}" />
+    <text name="TenantIsNotActive" value="租户 {0} 无效." />
+    <text name="UserIsNotActiveAndCanNotLogin" value="用户 {0} 无效，无法登录." />
+    <text name="UserEmailIsNotConfirmedAndCanNotLogin">您的电子邮件地址未被确认。您不能登录.</text>
+    <text name="UserLockedOutMessage">用户帐户已被锁定。请稍后再试.</text>
+    <text name="PleaseEnterLoginInformation" value="请输入登录信息" />
+    <text name="TenancyName" value="租户名" />
+    <text name="UserNameOrEmail" value="用户名或邮箱" />
+    <text name="Password" value="密码" />
+    <text name="RememberMe" value="记住我" />
+    <text name="LogIn" value="登录" />
+    <text name="LoginFailed" value="登录失败!" />
+    <text name="NameSurname" value="姓氏" />
+    <text name="UserName" value="用户名称" />
+    <text name="Name" value="名称" />
+    <text name="Surname" value="姓" />
+    <text name="EmailAddress" value="邮箱" />
+    <text name="Tenants" value="租户" />
+    <text name="SavedSuccessfully" value="保存成功" />
+    <text name="CreateNewTenant" value="创建新租户" />
+    <text name="AdminEmailAddress" value="管理员邮箱" />
+    <text name="Save" value="保存" />
+    <text name="Cancel" value="取消" />
+    <text name="TenantName_Regex_Description" value="租户名称必须至少有2个字符，以字母开头，并继续用字母、数字、破折号或下划线." />
+    <text name="DefaultPasswordIs" value="默认密码为 {0}" />
+    <text name="CanBeEmptyToLoginAsHost" value="可以作为主机登录." />
+    <text name="Register" value="注册" />
+    <text name="OrLoginWith" value="或登录" />
+    <text name="WaitingForActivationMessage" value="您的帐户正在等待系统管理员激活." />
+    <text name="TenantSelection" value="租户选择" />
+    <text name="TenantSelection_Detail" value="请选择下列租户." />
+    <text name="Logout" value="注销" />
+    <text name="RegisterFormUserNameInvalidMessage">请不要输入用户名的电子邮件地址.</text>
+    <text name="DatabaseConnectionString" value="数据库连接字符串" />
+    <text name="Users" value="用户" />
+    <text name="IsActive" value="是否可用" />
+    <text name="FullName" value="全名" />
+    <text name="CreateNewUser" value="创建新用户" />
+    <text name="Yes" value="是" />
+    <text name="No" value="否" />
+    <text name="Optional" value="可选的" />
+    <text name="LeaveEmptyToSwitchToHost">留空切换到主机</text>
+    <text name="CurrentTenant">当前租户</text>
+    <text name="NotSelected">未选中</text>
+    <text name="Change">更换</text>
+    <text name="ChangeTenant">更换租户</text>
+    <text name="MultiLevelMenu">多级菜单</text>
+    <text name="Back">返回</text>
+    <text name="SuccessfullyRegistered">成功注册</text>
+    <text name="WaitingForEmailActivation">您的电子邮件地址应该被激活</text>
+    <text name="Roles">角色</text>
+    <text name="DisplayName">显示名称</text>
+    <text name="Edit">修改</text>
+    <text name="Delete">删除</text>
+    <text name="CreateNewRole">创建新角色</text>
+    <text name="RoleName">角色名称</text>
+    <text name="Actions">操作</text>
+    <text name="CouldNotCompleteLoginOperation">无法完成登录操作。请稍后再试.</text>
+    <text name="CouldNotValidateExternalUser">无法验证外部用户</text>
+    <text name="EditRole">修改角色</text>
+    <text name="EditTenant">角色租户</text>
+    <text name="EditUser">修改用户</text>
+    <text name="TenantIdIsNotActive{0}">TenantId {0} 无效</text>
+    <text name="UnknownTenantId{0}">未知的tenantId {0}</text>
+    <text name="ThisFieldIsRequired">此字段必填</text>
+    <text name="PleaseWait">请等待...</text>
+    <text name="Administration">Administration</text>
+    <text name="ClearAll">清楚所有</text>
+    <text name="ClearOthers">清楚其他</text>
+    <text name="LabelOptions">标签选项</text>
+    <text name="Permissions">权限</text>
+    <text name="RoleDescription">角色描述</text>
+    <text name="Refresh">刷新</text>
+    <text name="Create">新建</text>
+    <text name="UserDetails">用户详细信息</text>
+    <text name="UserRoles">用户角色</text>
+    <text name="ConfirmPassword">确认密码</text>
+    <text name="SAMPLE DASHBOARD"></text>
+  </texts>
+</localizationDictionary>
+
